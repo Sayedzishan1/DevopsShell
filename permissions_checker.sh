@@ -5,7 +5,7 @@ check_permissions() {
     local file="$1" #local variable and $1 specifies the First argument
 
     # Check if the file exists
-    if [[ ! -e "$file" ]]; then #check if the file exists or not
+    if [[ ! -e "$file" ]]; then #check if the file exists 
         echo "File '$file' does not exist."
         return
     fi
