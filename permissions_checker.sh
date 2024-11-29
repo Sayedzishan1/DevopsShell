@@ -2,10 +2,10 @@
 
 # Function to check individual file permissions
 check_permissions() {
-    local file="$1"
+    local file="$1" #local variable and $1 specifies the First argument
 
     # Check if the file exists
-    if [[ ! -e "$file" ]]; then
+    if [[ ! -e "$file" ]]; then #check if the file exists or not
         echo "File '$file' does not exist."
         return
     fi
@@ -31,7 +31,7 @@ check_permissions() {
     fi
 
     # Group permissions (checking group permissions)
-    if [[ -r "$file" && $(stat -c %G "$file") == $(id -gn) ]]; then
+    if [[ -r "$file" && $(stat -c %G "$file") == $(id -gn) ]]; then #-c specifies the format of the string
         group_read="Yes"
     else
         group_read="No"
@@ -73,10 +73,10 @@ check_permissions() {
 
 # Prompt the user for input
 echo "Please enter the file paths (separate multiple files with spaces):"
-read -p "File(s): " input_files
+read -p "File(s): " input_files #-p to write a meesage before the input
 
 # Check if input is empty
-if [[ -z "$input_files" ]]; then
+if [[ -z "$input_files" ]]; then #-z sees if the imput is empty
     echo "No files provided. Exiting..."
     exit 1
 fi
